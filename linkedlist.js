@@ -68,6 +68,38 @@ class LinkedList {
     return currNode;
   }
 
+  insertAt(value, index) {
+    if (index == 0) {
+      this.prepend(value);
+    } else if (index > this.listSize - 1) {
+      return "Index out of bounds";
+    } else {
+      const currNodeBeforeValue = this.at(index - 1);
+      const currNodeAtValue = this.at(index);
+
+      const node = new Node(value, currNodeAtValue);
+      currNodeBeforeValue.nextNode = node;
+      this.listSize++;
+    }
+  }
+
+  removeAt(index) {
+    if (index == 0) {
+      this.headNode = this.headNode.nextNode;
+      this.listSize--;
+    } else if (index == this.listSize - 1) {
+      this.pop();
+    } else if (index > this.listSize - 1) {
+      return "Index out of bounds";
+    } else {
+      const currNodeBeforeValue = this.at(index - 1);
+      const currNodeAfterValue = this.at(index + 1);
+
+      currNodeBeforeValue.nextNode = currNodeAfterValue;
+      this.listSize--;
+    }
+  }
+
   pop() {
     this.tailNode = this.at(this.listSize - 2);
     this.tailNode.nextNode = null;
@@ -107,14 +139,3 @@ class LinkedList {
     return (listString += "null");
   }
 }
-
-const list = new LinkedList();
-list.append("dog");
-list.append("cat");
-list.append("parrot");
-list.append("hamster");
-list.append("snake");
-list.append("turtle");
-
-console.log(list.toString());
-console.log(list.insertAt(0));
