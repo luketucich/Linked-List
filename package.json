@@ -1,0 +1,18 @@
+{
+  "name": "linked-lists-top",
+  "version": "1.0.0",
+  "description": "",
+  "main": "LinkedList.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0"
+  }
+}
